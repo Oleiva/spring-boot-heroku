@@ -1,33 +1,42 @@
-# spring-boot-heroku-demo
+# java-getting-started
 
-[![Build Status](https://travis-ci.org/britter/spring-boot-heroku-demo.svg?branch=master)](https://travis-ci.org/britter/spring-boot-heroku-demo)
-[![Coverage Status](https://coveralls.io/repos/britter/spring-boot-heroku-demo/badge.svg?branch=master&service=github)](https://coveralls.io/github/britter/spring-boot-heroku-demo?branch=master)
-[![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
+[![CircleCI](https://circleci.com/gh/heroku/java-getting-started.svg?style=svg)](https://circleci.com/gh/heroku/java-getting-started)
 
-This is a small demo application for showing how to run a [Spring Boot](http://projects.spring.io/spring-boot/)
-application on [Heroku](http://heroku.com). For more information have a look at the
-[accompanying blog post](https://blog.codecentric.de/en/2015/10/deploying-spring-boot-applications-to-heroku).
-You can test the application [here](http://spring-boot-heroku-demo.herokuapp.com). Note that it is only running on a
-[free dyno](https://www.heroku.com/pricing), so it may take some time before it responds.
+A barebones Java app, which can easily be deployed to Heroku.
+
+This application supports the [Getting Started with Java on Heroku](https://devcenter.heroku.com/articles/getting-started-with-java) article - check it out.
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-## Running the application
+## Running Locally
 
-To run the application from your IDE, simply run the `com.github.britter.springbootherokudemo.Application` class as
-a Java Application.
-Alternatively the application can be started from the terminal using maven with `mvn spring-boot:run`.
-After starting the application, point your browser to http://localhost:8080.
+Make sure you have Java and Maven installed.  Also, install the [Heroku CLI](https://cli.heroku.com/).
 
-## Using a Postgres database for persistence
+```sh
+$ git clone https://github.com/heroku/java-getting-started.git
+$ cd java-getting-started
+$ mvn install
+$ heroku local:start
+```
 
-For running the application using a real [Postgres](http://www.postgresql.org/) database, uncomment all property
-definitions in the `application.properties` file and put the configuration for your Postgres instance there.
-You can also use [Docker](http://docker.com) for starting a Postgres database. Just run the `docker-postgres.sh` script
-and it will create a Postgres container for you. When using docker, all you have to change in the
-`application.properties` file is `spring.datasource.url`. For boot2docker users, the host name should already be
-correct. For Linux users it has to be changed to localhost.
+Your app should now be running on [localhost:5000](http://localhost:5000/).
 
-## License
+If you're going to use a database, ensure you have a local `.env` file that reads something like this:
 
-Code is under the [Apache Licence v2](https://www.apache.org/licenses/LICENSE-2.0.txt).
+```
+DATABASE_URL=postgres://localhost:5432/java_database_name
+```
+
+## Deploying to Heroku
+
+```sh
+$ heroku create
+$ git push heroku master
+$ heroku open
+```
+
+## Documentation
+
+For more information about using Java on Heroku, see these Dev Center articles:
+
+- [Java on Heroku](https://devcenter.heroku.com/categories/java)
