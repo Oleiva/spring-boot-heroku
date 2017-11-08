@@ -16,15 +16,17 @@
 package com.github.britter.springbootherokudemo;
 
 import javax.validation.Valid;
-import java.util.List;
+import java.io.*;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/")
@@ -39,14 +41,16 @@ public class HomeController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String home(ModelMap model) {
-        List<Record> records = repository.findAll();
-        model.addAttribute("records", records);
-        model.addAttribute("insertRecord", new Record());
-        return "home";
+//        List<Record> records = repository.findAll();
+//        model.addAttribute("records", records);
+//        model.addAttribute("insertRecord", new Record());
+//        return "index";
+        System.out.println("home");
+        return "redirect:/index.html";
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String insertData(ModelMap model, 
+    public String insertData(ModelMap model,
                              @ModelAttribute("insertRecord") @Valid Record record,
                              BindingResult result) {
         if (!result.hasErrors()) {
@@ -54,4 +58,105 @@ public class HomeController {
         }
         return home(model);
     }
+//
+//    @RequestMapping(value="/upload",method = RequestMethod.POST)
+//    @ResponseBody
+//    public String insertData( HttpServletRequest req) throws ServletException, IOException, FileUploadException {
+//
+//        if (req.getHeader("Content-Type") != null
+//                && req.getHeader("Content-Type").startsWith("multipart/form-data")) {
+//            ServletFileUpload upload = new ServletFileUpload();
+//
+//            FileItemIterator iterator = upload.getItemIterator(req);
+//
+//            System.out.println(iterator.next().getName());
+//
+//
+//
+//        } else {
+////            sb.append("{\"size\":\"" + size(ipAddress, req.getInputStream()) + "\"}");
+//        }
+//
+//
+////       try {
+////
+////           System.out.println( request.getMimeHeaders());
+////           System.out.println(request.getContentLength());;
+////       }catch (Exception ex){
+////           System.out.println("ES ");
+////       }
+//
+//
+//
+//        System.out.println("OKKK");
+//        return null;
+//    }
+
+
+
+//    @RequestMapping(value = "/upload", method = RequestMethod.POST)
+////    @Produces(MediaType.APPLICATION_JSON)
+//    public Data continueFileUpload(HttpServletRequest request, HttpServletResponse response){
+//        MultipartHttpServletRequest mRequest;
+//        String filename = "upload.xlsx";
+//        try {
+//            mRequest = (MultipartHttpServletRequest) request;
+//            mRequest.getParameterMap();
+//
+//            Iterator itr = mRequest.getFileNames();
+//            while (itr.hasNext()) {
+//                MultipartFile mFile = mRequest.getFile(String.valueOf(itr.next()));
+//                String fileName = mFile.getOriginalFilename();
+//                System.out.println(fileName);
+//
+//                java.nio.file.Path path = Paths.get("C:/Data/DemoUpload/" + filename);
+//                Files.deleteIfExists(path);
+//                InputStream in = mFile.getInputStream();
+//                Files.copy(in, path);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return null;
+//    }
+
+    @RequestMapping(value = "/upload", method = RequestMethod.POST)
+    public ResponseEntity<String> uploadDataFile(
+            @RequestParam(value = "file", required = true) MultipartFile file )
+    {
+
+        if ( file != null )
+        {
+            File convFile = new File( file.getOriginalFilename() );
+            try
+            {
+//                convFile.createNewFile();
+                FileOutputStream fos = new FileOutputStream( convFile );
+                fos.write( file.getBytes() );
+                fos.close();
+//                logger.info(convFile.getName());
+                System.out.println(convFile.getName());
+//                File d = convFile.getAbsoluteFile();
+//                System.out.println(d.getAbsolutePath());
+
+
+            }
+            catch ( FileNotFoundException e )
+            {
+//                logger.error( e );
+                System.out.println(""+e);
+            }
+            catch ( IOException e )
+            {
+//                logger.error( e );
+                System.out.println(" "+e);
+            }
+            return new ResponseEntity<String>( HttpStatus.OK );
+        }
+        else
+        {
+            return new ResponseEntity<String>( HttpStatus.NOT_FOUND );
+        }
+    }
+
 }
