@@ -17,8 +17,12 @@ package com.github.britter.springbootherokudemo;
 
 import javax.validation.Valid;
 import java.io.*;
+import java.util.ArrayList;
 
 
+import io.github.oleiva.ivasoft.ApachePOIExcelRead;
+import io.github.oleiva.ivasoft.Student;
+import io.github.oleiva.ivasoft.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,7 +35,8 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 @RequestMapping("/")
 public class HomeController {
-
+    @Autowired
+    private UserServiceImpl userService;
     private RecordRepository repository;
 
     @Autowired
@@ -122,40 +127,29 @@ public class HomeController {
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     public ResponseEntity<String> uploadDataFile(
-            @RequestParam(value = "file", required = true) MultipartFile file )
-    {
+            @RequestParam(value = "file", required = true) MultipartFile file) throws IOException {
 
-        if ( file != null )
-        {
-            File convFile = new File( file.getOriginalFilename() );
-            try
-            {
-//                convFile.createNewFile();
-                FileOutputStream fos = new FileOutputStream( convFile );
-                fos.write( file.getBytes() );
-                fos.close();
-//                logger.info(convFile.getName());
-                System.out.println(convFile.getName());
-//                File d = convFile.getAbsoluteFile();
-//                System.out.println(d.getAbsolutePath());
+        if (file != null) {
 
+            System.out.println(file.getOriginalFilename());
 
-            }
-            catch ( FileNotFoundException e )
-            {
-//                logger.error( e );
-                System.out.println(""+e);
-            }
-            catch ( IOException e )
-            {
-//                logger.error( e );
-                System.out.println(" "+e);
-            }
-            return new ResponseEntity<String>( HttpStatus.OK );
-        }
-        else
-        {
-            return new ResponseEntity<String>( HttpStatus.NOT_FOUND );
+//            xmlList.forEach( xml->{
+            File xml = new File( file.getOriginalFilename() );
+//            try {
+//                FileOutputStream fos = new FileOutputStream( convFile );
+//                fos.write( file.getBytes() );
+//                fos.close()
+//            }catch (Exception exeption){
+//
+//            }
+            ApachePOIExcelRead poiExcelRead = new ApachePOIExcelRead();
+            ArrayList<Student> list = poiExcelRead.transformation(xml);
+            userService.setStudent(list);
+//            });
+
+            return new ResponseEntity<String>(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<String>(HttpStatus.NOT_FOUND);
         }
     }
 
