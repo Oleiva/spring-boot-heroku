@@ -1,4 +1,4 @@
-package io.github.oleiva.ivasoft;
+package io.github.oleiva.ivasoft.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

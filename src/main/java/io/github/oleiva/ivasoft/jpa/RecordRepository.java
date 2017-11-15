@@ -1,5 +1,6 @@
-package io.github.oleiva.ivasoft;
+package io.github.oleiva.ivasoft.jpa;
 
+import io.github.oleiva.ivasoft.entity.Record;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

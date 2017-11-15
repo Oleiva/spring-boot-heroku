@@ -1,5 +1,6 @@
-package io.github.oleiva.ivasoft;
+package io.github.oleiva.ivasoft.services;
 
+import io.github.oleiva.ivasoft.pojo.Student;
 import io.github.oleiva.ivasoft.entity.MarksEntity;
 import io.github.oleiva.ivasoft.entity.StudentEntity;
 import io.github.oleiva.ivasoft.jpa.MarksJpa;

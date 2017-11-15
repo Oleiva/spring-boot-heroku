@@ -1,4 +1,4 @@
-package io.github.oleiva.ivasoft;
+package io.github.oleiva.ivasoft.pojo;
 
 public class Student {
     private String name;
