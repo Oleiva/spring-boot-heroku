@@ -1,6 +1,7 @@
 
 package io.github.oleiva.ivasoft;
 
+import io.github.oleiva.ivasoft.services.ResolverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,10 @@ import java.nio.file.Paths;
 public class HomeController {
     @Autowired
     private RecordRepository repository;
+
+    @Autowired
+    ResolverService resolverService;
+
     //Save the uploaded file to this folder
     private static String UPLOADED_FOLDER = "D://temp//";
 
@@ -108,7 +113,9 @@ public class HomeController {
             redirectAttributes.addFlashAttribute("message",
                     "You successfully uploaded '" + file.getOriginalFilename() + "'");
             System.out.println(file.getOriginalFilename());
-            
+
+            resolverService.resolve(UPLOADED_FOLDER,file.getOriginalFilename());
+
 
         } catch (IOException e) {
             e.printStackTrace();
