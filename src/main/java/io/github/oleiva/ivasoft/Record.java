@@ -1,4 +1,4 @@
-package com.github.britter.springbootherokudemo;
+package io.github.oleiva.ivasoft;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

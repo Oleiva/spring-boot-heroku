@@ -14,7 +14,7 @@ You can test the application [here](http://spring-boot-heroku-demo.herokuapp.com
 
 ## Running the application
 
-To run the application from your IDE, simply run the `com.github.britter.springbootherokudemo.Application` class as
+To run the application from your IDE, simply run the `io.github.oleiva.ivasoft.Application` class as
 a Java Application.
 Alternatively the application can be started from the terminal using maven with `mvn spring-boot:run`.
 After starting the application, point your browser to http://localhost:8080.
