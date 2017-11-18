@@ -3,6 +3,8 @@ package io.github.oleiva.ivasoft.services;
 import io.github.oleiva.ivasoft.FIOConverter;
 import io.github.oleiva.ivasoft.entity.MarksEntity;
 import io.github.oleiva.ivasoft.entity.StudentEntity;
+import io.github.oleiva.ivasoft.entity.SubjectEntity;
+import io.github.oleiva.ivasoft.jpa.SubjectJpa;
 import io.github.oleiva.ivasoft.pojo.MarksPojo;
 import io.github.oleiva.ivasoft.jpa.MarksJpa;
 import io.github.oleiva.ivasoft.jpa.StudentJpa;
@@ -22,6 +24,8 @@ public class DbImpl {
 
 @Autowired private MarksJpa marksJpa;
 @Autowired private StudentJpa studentJpa;
+@Autowired private SubjectJpa subjectJpa;
+
 
 
     public void saveMarks(ArrayList<MarksPojo> list){
@@ -35,7 +39,21 @@ public class DbImpl {
             System.out.println("hash "+hash);
             if (studentJpa.findByFiohash(hash)!=null) {
                long id =  studentJpa.findByFiohash(hash).getSTUD_ID();
-               marksJpa.saveAndFlush(new MarksEntity( id, marks.getSubject(), (int) marks.getMark()));
+
+               String subject = marks.getSubject();
+               long subjId =0;
+                try {
+                    subjId =  subjectJpa.findBySubject(subject).getID();
+                }catch (Exception ex){
+                    System.out.println(ex);
+                }
+                if (subjId==0){
+                    SubjectEntity subjectEntity = new SubjectEntity(subject);
+                    subjectJpa.saveAndFlush(subjectEntity);
+                    subjId =  subjectJpa.findBySubject(subject).getID();
+                }
+
+               marksJpa.saveAndFlush(new MarksEntity( id, subjId, (int) marks.getMark()));
             }else {
                 System.out.println("ERROR : "+"I dont know this student "+marks.getFio());
             }

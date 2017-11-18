@@ -19,7 +19,7 @@ public class MarksEntity {
     private long STUD_ID;
 
     @NotNull
-    private String SUBJECT;
+    private long SUBJECTID;
 
     @NotNull
     private int MARKS;
@@ -29,9 +29,10 @@ public class MarksEntity {
 
     }
 
-    public MarksEntity(long STUD_ID, String SUBJECT, int MARKS) {
+
+    public MarksEntity(long STUD_ID, long SUBJECTID, int MARKS) {
         this.STUD_ID = STUD_ID;
-        this.SUBJECT = SUBJECT;
+        this.SUBJECTID = SUBJECTID;
         this.MARKS = MARKS;
     }
 
@@ -43,12 +44,12 @@ public class MarksEntity {
         this.STUD_ID = STUD_ID;
     }
 
-    public String getSUBJECT() {
-        return SUBJECT;
+    public long getSUBJECTID() {
+        return SUBJECTID;
     }
 
-    public void setSUBJECT(String SUBJECT) {
-        this.SUBJECT = SUBJECT;
+    public void setSUBJECTID(long SUBJECTID) {
+        this.SUBJECTID = SUBJECTID;
     }
 
 //    public String getMARKS() {
