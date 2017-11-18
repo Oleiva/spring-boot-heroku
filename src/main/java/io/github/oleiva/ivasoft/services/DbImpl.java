@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Ivasoft on 01.10.2017.
@@ -76,6 +77,10 @@ public class DbImpl {
         studentJpa.flush();
         System.out.println("Saveng");
 
+    }
+
+    public List<StudentEntity> getAllStudents(){
+     return    studentJpa.findAll();
     }
 
 

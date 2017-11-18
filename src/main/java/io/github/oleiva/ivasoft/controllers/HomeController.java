@@ -125,5 +125,12 @@ public class HomeController {
 //        return "uploadStatus";
 //    }
 
+    @GetMapping("/processing")
+    public String processing() {
+//        return "upload";
+        System.out.println("DDDDD");
+        resolverService.processing();
+        return "redirect:/index.html";
+    }
 
 }
