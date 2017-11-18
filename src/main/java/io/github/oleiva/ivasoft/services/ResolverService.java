@@ -1,6 +1,7 @@
 package io.github.oleiva.ivasoft.services;
 
-import io.github.oleiva.ivasoft.pojo.Student;
+import io.github.oleiva.ivasoft.pojo.MarksPojo;
+import io.github.oleiva.ivasoft.pojo.StudentPojo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +14,13 @@ import java.util.ArrayList;
 
 @Service
 public class ResolverService {
-    	private final UserServiceImpl userService;
+
+
+    	private final DbImpl database;
 
     @Autowired
-    public ResolverService(UserServiceImpl userService) {
-        this.userService = userService;
+    public ResolverService(DbImpl database) {
+        this.database = database;
     }
 //
 
@@ -26,14 +29,20 @@ public class ResolverService {
         System.out.println("resolve");
         System.out.println(path +filename);
 
-        if (filename.contains("session")){
+        if (filename.contains("session")){ // MarksPojo
             System.out.println("Session");
 
-            ApachePOIExcelRead poiExcelRead = new ApachePOIExcelRead();
-            ArrayList<Student> list = poiExcelRead.transformation(new File(path +filename));
-			userService.setStudent(list);
+            ParserMarks poiExcelRead = new ParserMarks();
+            ArrayList<MarksPojo> list = poiExcelRead.transformation(new File(path +filename));
+			database.saveMarks(list);
 
-        }else {
+        }
+        else if (filename.contains("students")){// Students
+            ParserStudents poiExcelRead = new ParserStudents();
+            ArrayList<StudentPojo> list = poiExcelRead.tr_atudents(new File(path +filename));
+            database.saveStudent(list);
+        }
+        else {
             System.out.println("EMPTY");
         }
 

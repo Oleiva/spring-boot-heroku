@@ -64,9 +64,9 @@ public class HomeController {
 ////            }catch (Exception exeption){
 ////
 ////            }
-////            ApachePOIExcelRead poiExcelRead = new ApachePOIExcelRead();
-////            ArrayList<Student> list = poiExcelRead.transformation(xml);
-////            userService.setStudent(list);
+////            ParserMarks poiExcelRead = new ParserMarks();
+////            ArrayList<MarksPojo> list = poiExcelRead.tr_atudents(xml);
+////            userService.saveMarks(list);
 ////            });
 //
 //            return new ResponseEntity<String>(HttpStatus.OK);
@@ -116,8 +116,8 @@ public class HomeController {
             e.printStackTrace();
         }
 
-//        return "redirect:/uploadStatus";
-        return "redirect:/";
+        return "redirect:/uploadStatus";
+//        return "redirect:/";
     }
 
 //    @GetMapping("/uploadStatus")

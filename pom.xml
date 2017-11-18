@@ -166,7 +166,7 @@
             <id>heroku</id>
             <activation>
                 <property>
-                    <name>env.SOURCE_VERSION</name>
+                    <fio>env.SOURCE_VERSION</fio>
                 </property>
             </activation>
             <properties>
@@ -177,7 +177,7 @@
             <id>travis</id>
             <activation>
                 <property>
-                    <name>env.TRAVIS</name>
+                    <fio>env.TRAVIS</fio>
                     <value>true</value>
                 </property>
             </activation>

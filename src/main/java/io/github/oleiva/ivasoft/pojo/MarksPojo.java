@@ -1,30 +1,30 @@
 package io.github.oleiva.ivasoft.pojo;
 
-public class Student {
-    private String name;
+public class MarksPojo {
+    private String fio;
     private String subject;
     private double mark;
     private String grup;
 
-//    public Student(){
+//    public MarksPojo(){
 //
 //    }
 
 
-    public Student(String name, String subject, double mark, String grup) {
-        this.name = name;
+    public MarksPojo(String fio, String subject, double mark, String grup) {
+        this.fio = fio;
         this.subject = subject;
         this.mark = mark;
         this.grup = grup;
     }
 
 
-    public String getName() {
-        return name;
+    public String getFio() {
+        return fio;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFio(String fio) {
+        this.fio = fio;
     }
 
     public String getSubject() {
@@ -53,8 +53,8 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
+        return "MarksPojo{" +
+                "fio='" + fio + '\'' +
                 ", subject='" + subject + '\'' +
                 ", mark=" + mark +
                 ", grup='" + grup + '\'' +

@@ -2,7 +2,7 @@ package io.github.oleiva.ivasoft.services;
 
 
 
-import io.github.oleiva.ivasoft.pojo.Student;
+import io.github.oleiva.ivasoft.pojo.MarksPojo;
 import io.github.oleiva.ivasoft.jpa.StudentJpa;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class ApachePOIExcelRead {
+public class ParserMarks {
 
     @Autowired
     private StudentJpa studentJpa;
@@ -26,11 +26,11 @@ public class ApachePOIExcelRead {
 //    private static final String FILE_NAME = "data/38.xlsx";
 
     public static void main(String[] args) {
-//        transformation();
+//        tr_atudents();
     }
 
-    public ArrayList<Student> transformation(File file) {
-        ArrayList<Student> students = new ArrayList<>();
+    public ArrayList<MarksPojo> transformation(File file) {
+        ArrayList<MarksPojo> marks = new ArrayList<>();
 
         String name= "";
         String subject= "";
@@ -77,7 +77,7 @@ public class ApachePOIExcelRead {
                                 mark = 0.0;
                                 grup = "";
 
-                                students.add(new Student(name, subject, currentCell.getNumericCellValue(), grup));
+                                marks.add(new MarksPojo(name, subject, currentCell.getNumericCellValue(), grup));
                             }
 
                         } else {
@@ -95,12 +95,12 @@ public class ApachePOIExcelRead {
             e.printStackTrace();
         }
 
-        students.forEach(x->{
+        marks.forEach(x->{
             System.out.println(x.toString());
         });
         System.out.println("//////");
         System.out.println();
 
-        return students;
+        return marks;
     }
 }
