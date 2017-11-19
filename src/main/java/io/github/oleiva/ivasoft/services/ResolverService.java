@@ -1,14 +1,16 @@
 package io.github.oleiva.ivasoft.services;
 
+
+import io.github.oleiva.ivasoft.entity.MarksEntity;
 import io.github.oleiva.ivasoft.entity.StudentEntity;
-import io.github.oleiva.ivasoft.entity.SubjectEntity;
+import io.github.oleiva.ivasoft.jpa.MarksJpa;
 import io.github.oleiva.ivasoft.pojo.MarksPojo;
 import io.github.oleiva.ivasoft.pojo.StudentPojo;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.hibernate.SQLQuery;
+import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,12 +28,15 @@ import java.util.List;
 @Service
 public class ResolverService {
 
-
+@Autowired
+private MarksJpa marksJpa;
     	private final DbImpl database;
+    	private final ExelExport exelExport;
 
     @Autowired
-    public ResolverService(DbImpl database) {
+    public ResolverService(DbImpl database, ExelExport exelExport) {
         this.database = database;
+        this.exelExport = exelExport;
     }
 //
 
@@ -62,7 +67,18 @@ public class ResolverService {
     }
 
 
+
+
     public void processing(){
+
+        exelExport.processing();
+    }
+
+
+
+
+
+    public void processing2(){
 /**
  *
  * Взяь всех студентов
@@ -111,8 +127,25 @@ public class ResolverService {
                     HSSFCell cell = row.createCell(c);
                     if (c ==0){
                         cell.setCellValue(studentEntity.getSurname()+" " +studentEntity.getName());
-                    }else
-                    cell.setCellValue("Cell "+r+" "+c);
+                    }else{
+                        long studId = studentEntity.getSTUD_ID();
+                        System.out.println("studId "+studId);
+
+                        long id =0;
+                        try {
+                            MarksEntity marksEntity = marksJpa.getMarksEntitiesBySTUD_ID(studId);
+                            System.out.println("marksEntity.getSUBJECTID();"+marksEntity.getSUBJECTID());
+                        }catch (Exception e){
+
+                        }
+
+
+                        System.out.println("");
+
+
+                        cell.setCellValue("Cell "+r+" "+c);
+                    }
+
                 }
             }
 
