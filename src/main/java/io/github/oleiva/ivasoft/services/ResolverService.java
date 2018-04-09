@@ -70,12 +70,8 @@ private MarksJpa marksJpa;
 
 
     public void processing(){
-
         exelExport.processing();
     }
-
-
-
 
 
     public void processing2(){

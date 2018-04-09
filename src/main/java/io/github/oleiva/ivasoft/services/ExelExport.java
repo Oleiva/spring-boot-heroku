@@ -40,39 +40,6 @@ public class ExelExport {
             studentsArray.add(student);
         });
 
-
-
-
-//        ArrayList<String> markList = new ArrayList<>();
-//        markList.add("java");
-//        markList.add("scala");
-//        markList.add("python");
-
-//        JSONObject  marks = new JSONObject();
-//        markList.forEach(lis->{
-//            marks.put(lis,90);
-//        });
-//
-//
-//
-//        JSONObject student_1 = new JSONObject();
-//        student_1.put("name", "Oleg");
-//        student_1.put("surname", "Ivashko");
-//        student_1.put("marks",  marks);
-//
-//        JSONObject student_2 = new JSONObject();
-//        student_2.put("name", "Aleksandra");
-//        student_2.put("surname", "Goroh");
-//        student_2.put("marks",  marks);
-//
-//
-//        studentsArray.add(student_1);
-//        studentsArray.add(student_2);
-
-
-
-
-
         exelExport(studentsArray);
     }
 
@@ -92,11 +59,6 @@ public class ExelExport {
     }
 
 
-
-
-
-
-
     public static void exelExport(JSONArray studentsArray) {
         String excelFileName = "d:/Test.xls";//name of excel file
         String sheetName = "Sheet1";//name of sheet
@@ -107,15 +69,10 @@ public class ExelExport {
         markList.add("python");
         markList.add("scala");
 
-
-
         System.out.println(studentsArray);
         HSSFWorkbook wb = new HSSFWorkbook();
         HSSFSheet sheet = wb.createSheet(sheetName);
 
-        // Шапка
-
-        //        Шапка
         HSSFRow row_0 = sheet.createRow(0);
         //iterating c number of columns
 
@@ -162,7 +119,6 @@ public class ExelExport {
                 cell.setCellValue(" " + tur);
 
             }
-//        });
         }
 
 
@@ -173,7 +129,6 @@ public class ExelExport {
             e.printStackTrace();
         }
 
-        //write this workbook to an Outputstream.
         try {
             wb.write(fileOut);
         } catch (IOException e) {
@@ -190,8 +145,6 @@ public class ExelExport {
             e.printStackTrace();
         }
 
-
-        ;
 
     }
 }

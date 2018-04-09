@@ -1,12 +1,8 @@
 package io.github.oleiva.ivasoft;
 
-/**
- * Created by Ivasoft on 18.11.2017.
- */
+
 public class FIOConverter {
-//    public static void main(String[] args) {
-//        getFIOHAshe();
-//    }
+
 
     public  String getFIOHAshe(String fio) {
 

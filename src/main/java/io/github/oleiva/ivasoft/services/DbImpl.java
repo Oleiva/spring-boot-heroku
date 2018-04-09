@@ -75,7 +75,7 @@ public class DbImpl {
             }
         });
         studentJpa.flush();
-        System.out.println("Saveng");
+        System.out.println("Saveng. All OK");
 
     }
 
