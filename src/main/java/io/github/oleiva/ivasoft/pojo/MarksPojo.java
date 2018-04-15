@@ -5,19 +5,21 @@ public class MarksPojo {
     private String subject;
     private double mark;
     private String grup;
+    private String grup_index;
+
 
 //    public MarksPojo(){
 //
 //    }
 
 
-    public MarksPojo(String fio, String subject, double mark, String grup) {
+    public MarksPojo(String fio, String subject, double mark, String grup, String grup_index) {
         this.fio = fio;
         this.subject = subject;
         this.mark = mark;
         this.grup = grup;
+        this.grup_index = grup_index;
     }
-
 
     public String getFio() {
         return fio;
@@ -51,6 +53,14 @@ public class MarksPojo {
         this.grup = grup;
     }
 
+    public String getGrup_index() {
+        return grup_index;
+    }
+
+    public void setGrup_index(String grup_index) {
+        this.grup_index = grup_index;
+    }
+
     @Override
     public String toString() {
         return "MarksPojo{" +
@@ -58,8 +68,7 @@ public class MarksPojo {
                 ", subject='" + subject + '\'' +
                 ", mark=" + mark +
                 ", grup='" + grup + '\'' +
+                ", grup_index='" + grup_index + '\'' +
                 '}';
     }
-
-
 }

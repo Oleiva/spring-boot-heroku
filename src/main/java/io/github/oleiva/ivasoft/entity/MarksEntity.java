@@ -27,16 +27,21 @@ public class MarksEntity {
     @NotNull
     private long GROUP_ID;
 
+    @NotNull
+    private String GROUP_INDEX;
+
+
     public MarksEntity(){
 
     }
 
 
-    public MarksEntity(long STUD_ID, long SUBJECTID, long MARKS, long GROUP_ID) {
+    public MarksEntity(long STUD_ID, long SUBJECTID, long MARKS, long GROUP_ID, String GROUP_INDEX) {
         this.STUD_ID = STUD_ID;
         this.SUBJECTID = SUBJECTID;
         this.MARKS = MARKS;
         this.GROUP_ID = GROUP_ID;
+        this.GROUP_INDEX = GROUP_INDEX;
     }
 
     public long getSTUD_ID() {

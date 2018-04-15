@@ -66,7 +66,9 @@ public class DbImpl {
                     group_id= groupJpa.findByGroupName(group).getId();
                 }
 
-               marksJpa.saveAndFlush(new MarksEntity( id, subjId, (int) marks.getMark(), group_id));
+                String group_index =marks.getGrup_index();
+
+               marksJpa.saveAndFlush(new MarksEntity( id, subjId, (int) marks.getMark(), group_id,group_index));
             }else {
                 System.out.println("ERROR : "+"I dont know this student "+marks.getFio());
             }

@@ -91,8 +91,12 @@ public class ParserMarks {
                                 Validator validator = new Validator();
 
                                     grup =validator.validateGroup(datatypeSheet.getSheetName());
+                                System.out.println("grup "+grup);
 
-                                marks.add(new MarksPojo(name, subject, currentCell.getNumericCellValue(), grup));
+                                String grup_index =validator.validateGroupIndex(datatypeSheet.getSheetName());
+                                System.out.println("grup_index "+grup_index);
+
+                                marks.add(new MarksPojo(name, subject, currentCell.getNumericCellValue(), grup,grup_index));
                             }
 
                         } else {
