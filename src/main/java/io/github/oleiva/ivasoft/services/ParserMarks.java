@@ -23,6 +23,8 @@ public class ParserMarks {
     @Autowired
     private StudentJpa studentJpa;
 
+//    @Autowired private Validator validator;
+
 //    private static final String FILE_NAME = "data/38.xlsx";
 
     public static void main(String[] args) {
@@ -46,6 +48,7 @@ public class ParserMarks {
             Iterator<Sheet> sheetIterator = workbook.sheetIterator();
             while (sheetIterator.hasNext()) {
                 Sheet datatypeSheet = sheetIterator.next();
+
 
                 Iterator<Row> iterator = datatypeSheet.iterator();
                 ArrayList<String> subjectList = new ArrayList<>();
@@ -75,7 +78,19 @@ public class ParserMarks {
                                 name = datatypeSheet.getRow(indexR).getCell(0).getStringCellValue();
                                 subject = datatypeSheet.getRow(0).getCell(indexC).getStringCellValue();
                                 mark = 0.0;
-                                grup = "";
+
+
+                                System.out.println("sheetName :: "+datatypeSheet.getSheetName());
+//                                Validator.validateGroup(datatypeSheet.getSheetName());
+//                                grup =validator.validateGroup(datatypeSheet.getSheetName());
+
+//                                grup ="";
+//                                System.out.println(validator.validateGroupIndex("TM-031"));
+//                                System.out.println(validator.validateGroup("TM-031"));
+
+                                Validator validator = new Validator();
+
+                                    grup =validator.validateGroup(datatypeSheet.getSheetName());
 
                                 marks.add(new MarksPojo(name, subject, currentCell.getNumericCellValue(), grup));
                             }
@@ -90,6 +105,7 @@ public class ParserMarks {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             System.out.println("FileNotFoundException ");
+
         } catch (IOException e) {
             System.out.println("IOException");
             e.printStackTrace();

@@ -24,7 +24,6 @@ import java.util.List;
 /**
  * Created by Ivasoft on 15.11.2017.
  */
-
 @Service
 public class ResolverService {
 

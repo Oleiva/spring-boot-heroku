@@ -2,8 +2,11 @@ package io.github.oleiva.ivasoft.services;
 
 import io.github.oleiva.ivasoft.FIOConverter;
 import io.github.oleiva.ivasoft.entity.MarksEntity;
+import io.github.oleiva.ivasoft.entity.PGroup;
 import io.github.oleiva.ivasoft.entity.StudentEntity;
 import io.github.oleiva.ivasoft.entity.SubjectEntity;
+//import io.github.oleiva.ivasoft.jpa.GroupJpa;
+import io.github.oleiva.ivasoft.jpa.GroupJpa;
 import io.github.oleiva.ivasoft.jpa.SubjectJpa;
 import io.github.oleiva.ivasoft.pojo.MarksPojo;
 import io.github.oleiva.ivasoft.jpa.MarksJpa;
@@ -26,6 +29,7 @@ public class DbImpl {
 @Autowired private MarksJpa marksJpa;
 @Autowired private StudentJpa studentJpa;
 @Autowired private SubjectJpa subjectJpa;
+@Autowired private GroupJpa groupJpa;
 
 
 
@@ -54,7 +58,15 @@ public class DbImpl {
                     subjId =  subjectJpa.findBySubject(subject).getID();
                 }
 
-               marksJpa.saveAndFlush(new MarksEntity( id, subjId, (int) marks.getMark()));
+                String group = marks.getGrup();
+                long  group_id;
+                if(groupJpa.findByGroupName(group)==null){
+                    group_id = groupJpa.save(new PGroup(group)).getId();
+                }else{
+                    group_id= groupJpa.findByGroupName(group).getId();
+                }
+
+               marksJpa.saveAndFlush(new MarksEntity( id, subjId, (int) marks.getMark(), group_id));
             }else {
                 System.out.println("ERROR : "+"I dont know this student "+marks.getFio());
             }

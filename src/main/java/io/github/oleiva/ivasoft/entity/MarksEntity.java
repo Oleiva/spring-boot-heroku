@@ -22,18 +22,21 @@ public class MarksEntity {
     private long SUBJECTID;
 
     @NotNull
-    private int MARKS;
+    private long MARKS;
 
+    @NotNull
+    private long GROUP_ID;
 
     public MarksEntity(){
 
     }
 
 
-    public MarksEntity(long STUD_ID, long SUBJECTID, int MARKS) {
+    public MarksEntity(long STUD_ID, long SUBJECTID, long MARKS, long GROUP_ID) {
         this.STUD_ID = STUD_ID;
         this.SUBJECTID = SUBJECTID;
         this.MARKS = MARKS;
+        this.GROUP_ID = GROUP_ID;
     }
 
     public long getSTUD_ID() {
