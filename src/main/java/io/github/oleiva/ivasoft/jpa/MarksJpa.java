@@ -34,5 +34,10 @@ public interface MarksJpa  extends JpaRepository<MarksEntity, Long> {
     List<MarksEntity> getByStudid (long studId);
 
 
+    String lastmarks = "SELECT subjectid FROM marks WHERE groupid=:group_Id";
+    @Query(value = lastmarks, nativeQuery = true)
+    Set<BigInteger> getMarks(@Param("group_Id") long issueId);
+
+
 
 }
