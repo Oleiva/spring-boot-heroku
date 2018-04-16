@@ -16,7 +16,7 @@ public class MarksEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long ID;
 
-    private long STUD_ID;
+    private long studid;
 
     @NotNull
     private long SUBJECTID;
@@ -24,8 +24,8 @@ public class MarksEntity {
     @NotNull
     private long MARKS;
 
-    @NotNull
-    private long GROUP_ID;
+//    @NotNull
+    private long groupid;
 
     @NotNull
     private String GROUP_INDEX;
@@ -36,21 +36,15 @@ public class MarksEntity {
     }
 
 
-    public MarksEntity(long STUD_ID, long SUBJECTID, long MARKS, long GROUP_ID, String GROUP_INDEX) {
-        this.STUD_ID = STUD_ID;
+    public MarksEntity(long studid, long SUBJECTID, long MARKS, long groupid, String GROUP_INDEX) {
+        this.studid = studid;
         this.SUBJECTID = SUBJECTID;
         this.MARKS = MARKS;
-        this.GROUP_ID = GROUP_ID;
+        this.groupid = groupid;
         this.GROUP_INDEX = GROUP_INDEX;
     }
 
-    public long getSTUD_ID() {
-        return STUD_ID;
-    }
 
-    public void setSTUD_ID(long STUD_ID) {
-        this.STUD_ID = STUD_ID;
-    }
 
     public long getSUBJECTID() {
         return SUBJECTID;
@@ -67,4 +61,57 @@ public class MarksEntity {
 //    public void setMARKS(String MARKS) {
 //        this.MARKS = MARKS;
 //    }
+
+
+    public long getID() {
+        return ID;
+    }
+
+    public void setID(long ID) {
+        this.ID = ID;
+    }
+
+    public long getMARKS() {
+        return MARKS;
+    }
+
+    public void setMARKS(long MARKS) {
+        this.MARKS = MARKS;
+    }
+
+    public long getGroupid() {
+        return groupid;
+    }
+
+    public void setGroupid(long groupid) {
+        this.groupid = groupid;
+    }
+
+    public String getGROUP_INDEX() {
+        return GROUP_INDEX;
+    }
+
+    public void setGROUP_INDEX(String GROUP_INDEX) {
+        this.GROUP_INDEX = GROUP_INDEX;
+    }
+
+    public long getStudid() {
+        return studid;
+    }
+
+    public void setStudid(long studid) {
+        this.studid = studid;
+    }
+
+    @Override
+    public String toString() {
+        return "MarksEntity{" +
+                "ID=" + ID +
+                ", studid=" + studid +
+                ", SUBJECTID=" + SUBJECTID +
+                ", MARKS=" + MARKS +
+                ", groupid=" + groupid +
+                ", GROUP_INDEX='" + GROUP_INDEX + '\'' +
+                '}';
+    }
 }

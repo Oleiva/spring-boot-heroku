@@ -73,6 +73,12 @@ private MarksJpa marksJpa;
     }
 
 
+
+    public void processing_2(){
+//        new version
+        exelExport.processing();
+    }
+
     public void processing2(){
 /**
  *
@@ -128,8 +134,8 @@ private MarksJpa marksJpa;
 
                         long id =0;
                         try {
-                            MarksEntity marksEntity = marksJpa.getMarksEntitiesBySTUD_ID(studId);
-                            System.out.println("marksEntity.getSUBJECTID();"+marksEntity.getSUBJECTID());
+//                            MarksEntity marksEntity = marksJpa.getMarksEntitiesBySTUD_ID(studId);
+//                            System.out.println("marksEntity.getSUBJECTID();"+marksEntity.getSUBJECTID());
                         }catch (Exception e){
 
                         }

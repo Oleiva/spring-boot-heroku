@@ -2,6 +2,7 @@
 package io.github.oleiva.ivasoft.controllers;
 
 import io.github.oleiva.ivasoft.jpa.RecordRepository;
+import io.github.oleiva.ivasoft.services.NewProcessing;
 import io.github.oleiva.ivasoft.services.ResolverService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,9 @@ public class HomeController {
 
     @Autowired
     ResolverService resolverService;
+
+    @Autowired
+    NewProcessing newProcessing;
 
 
     private static String UPLOADED_FOLDER = "/home/ivasoft/Documents/Owner/spring-boot-heroku/Cashe/";
@@ -72,6 +76,14 @@ public class HomeController {
     public String processing() {
         System.out.println("DDDDD");
         resolverService.processing();
+        return "redirect:/index.html";
+    }
+
+    @GetMapping("/processing2")
+    public String processing2() {
+        System.out.println("processing2");
+        newProcessing.doit();
+
         return "redirect:/index.html";
     }
 
