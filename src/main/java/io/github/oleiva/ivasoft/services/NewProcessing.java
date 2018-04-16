@@ -4,9 +4,9 @@ import io.github.oleiva.ivasoft.entity.MarksEntity;
 import io.github.oleiva.ivasoft.entity.PGroup;
 import io.github.oleiva.ivasoft.jpa.GroupJpa;
 import io.github.oleiva.ivasoft.jpa.MarksJpa;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import io.github.oleiva.ivasoft.jpa.StudentJpa;
+import io.github.oleiva.ivasoft.jpa.SubjectJpa;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +28,12 @@ public class NewProcessing {
     @Autowired
     MarksJpa marksJpa;
 
+    @Autowired
+    SubjectJpa subjectJpa;
+
+    @Autowired
+    StudentJpa studentJpa;
+
     public void doit(){
         System.out.println("doit");
 
@@ -42,11 +48,14 @@ public class NewProcessing {
             Set<BigInteger> studentMarks = marksJpa.getMarks((group.getId()));
 
             int raw_index = 1;
-            int cell_header = 1;
+            int cell_header = 5;
 
             Row row_ = sheet.createRow(0);
             for (BigInteger studentMark : studentMarks){
-                row_.createCell(cell_header).setCellValue(String.valueOf(studentMark));
+//                row_.createCell(cell_header).setCellValue(String.valueOf(studentMark));
+                row_.createCell(cell_header).setCellValue(subjectJpa.findOne(studentMark.longValue()).getSubject());
+//                subjectJpa.findOne(studentMark.longValue());
+
                 cell_header++;
             }
 
@@ -59,7 +68,17 @@ public class NewProcessing {
                 Row row = sheet.createRow(raw_index);
 
 
-                int cell_index =1;
+
+//                studentJpa.findOne(stud.longValue()).;
+                row.createCell(0).setCellValue(stud.toString()); //index
+                row.createCell(1).setCellValue("Name"); //index
+                row.createCell(2).setCellValue("patronymic"); //index
+                row.createCell(3).setCellValue("surname"); //index
+                row.createCell(4).setCellValue(""); //index
+
+
+
+                int cell_index =5;
                 for (BigInteger studentMark : studentMarks){
 
                    Long mar = 0L;
@@ -70,7 +89,23 @@ public class NewProcessing {
                    }
 
                     System.out.println("studentMark "+studentMark+" "+mar);
-                    row.createCell(cell_index).setCellValue(mar+"");
+
+                    CellStyle style = wb.createCellStyle();
+                    style = wb.createCellStyle();
+                    style.setFillForegroundColor(IndexedColors.GREY_25_PERCENT.getIndex());
+                    style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+
+//                    row.createCell(cell_index).setCellValue(mar+"");
+                    Cell cell = row.createCell(cell_index);
+                    if (null ==mar || 0 == mar){
+                        cell.setCellStyle(style);
+                        cell.setCellValue("");
+                    }else {
+                        cell.setCellValue(mar);
+                    }
+
+
+
                     cell_index++;
                 }
 
