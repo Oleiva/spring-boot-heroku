@@ -9,7 +9,7 @@ public class StudentEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long STUD_ID;
+    private long studid;
 
 //    @NotNull
 //    @Column(name = "studname")
@@ -39,14 +39,18 @@ public class StudentEntity {
 
     }
 
-    public long getSTUD_ID() {
-        return STUD_ID;
+
+    public long getStudid() {
+        return studid;
     }
 
-    public void setSTUD_ID(long STUD_ID) {
-        this.STUD_ID = STUD_ID;
+    public void setStudid(long studid) {
+        this.studid = studid;
     }
 
+    public String getFiohash() {
+        return fiohash;
+    }
 
     public String getName() {
         return name;

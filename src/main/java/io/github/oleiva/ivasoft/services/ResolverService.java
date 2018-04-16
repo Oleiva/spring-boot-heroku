@@ -129,7 +129,7 @@ private MarksJpa marksJpa;
                     if (c ==0){
                         cell.setCellValue(studentEntity.getSurname()+" " +studentEntity.getName());
                     }else{
-                        long studId = studentEntity.getSTUD_ID();
+                        long studId = studentEntity.getStudid();
                         System.out.println("studId "+studId);
 
                         long id =0;

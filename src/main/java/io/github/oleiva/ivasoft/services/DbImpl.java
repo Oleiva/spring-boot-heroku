@@ -43,7 +43,7 @@ public class DbImpl {
             String hash = DigestUtils.sha256Hex(fioConverter.getFIOHAshe(marks.getFio()));
             System.out.println("hash "+hash);
             if (studentJpa.findByFiohash(hash)!=null) {
-               long id =  studentJpa.findByFiohash(hash).getSTUD_ID();
+               long id =  studentJpa.findByFiohash(hash).getStudid();
 
                String subject = marks.getSubject();
                long subjId =0;

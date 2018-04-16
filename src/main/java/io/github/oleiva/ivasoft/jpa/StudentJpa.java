@@ -10,5 +10,5 @@ public interface StudentJpa extends JpaRepository<StudentEntity, Long> {
     StudentEntity findByFiohash(String fioHash);
 
 
-    StudentEntity findBySTUD_ID(String stud_id);
+    StudentEntity findByStudid(long stud_id);
 }

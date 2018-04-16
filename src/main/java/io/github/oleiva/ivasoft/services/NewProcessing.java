@@ -2,6 +2,7 @@ package io.github.oleiva.ivasoft.services;
 
 import io.github.oleiva.ivasoft.entity.MarksEntity;
 import io.github.oleiva.ivasoft.entity.PGroup;
+import io.github.oleiva.ivasoft.entity.StudentEntity;
 import io.github.oleiva.ivasoft.jpa.GroupJpa;
 import io.github.oleiva.ivasoft.jpa.MarksJpa;
 import io.github.oleiva.ivasoft.jpa.StudentJpa;
@@ -69,11 +70,12 @@ public class NewProcessing {
 
 
 
-//                studentJpa.findOne(stud.longValue()).;
+                StudentEntity studentEntity =  studentJpa.findByStudid(stud.longValue());
+
                 row.createCell(0).setCellValue(stud.toString()); //index
-                row.createCell(1).setCellValue("Name"); //index
-                row.createCell(2).setCellValue("patronymic"); //index
-                row.createCell(3).setCellValue("surname"); //index
+                row.createCell(1).setCellValue(studentEntity.getSurname()); //index
+                row.createCell(2).setCellValue(studentEntity.getName()); //index
+                row.createCell(3).setCellValue(studentEntity.getPatronymic()); //index
                 row.createCell(4).setCellValue(""); //index
 
 
