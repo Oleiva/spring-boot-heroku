@@ -86,4 +86,15 @@ public class StudentEntity {
     public void setFiohash(String fiohash) {
         this.fiohash = fiohash;
     }
+
+    @Override
+    public String toString() {
+        return "StudentEntity{" +
+                "studid=" + studid +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", patronymic='" + patronymic + '\'' +
+                ", fiohash='" + fiohash + '\'' +
+                '}';
+    }
 }

@@ -1,16 +1,13 @@
 package io.github.oleiva.ivasoft.services;
 
 
-import io.github.oleiva.ivasoft.entity.MarksEntity;
 import io.github.oleiva.ivasoft.entity.StudentEntity;
 import io.github.oleiva.ivasoft.jpa.MarksJpa;
 import io.github.oleiva.ivasoft.pojo.MarksPojo;
-import io.github.oleiva.ivasoft.pojo.StudentPojo;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -54,7 +51,8 @@ private MarksJpa marksJpa;
         }
         else if (filename.contains("students")){// Students
             ParserStudents poiExcelRead = new ParserStudents();
-            ArrayList<StudentPojo> list = poiExcelRead.tr_atudents(new File(path +filename));
+//            ArrayList<StudentPojo> list = poiExcelRead.tr_atudents(new File(path +filename));
+            List<StudentEntity> list = poiExcelRead.tr_atudents(new File(path +filename));
             database.saveStudent(list);
         }
         else {

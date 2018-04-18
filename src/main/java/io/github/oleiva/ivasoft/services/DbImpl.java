@@ -76,14 +76,31 @@ public class DbImpl {
         });
     }
 
-    public void saveStudent(ArrayList<StudentPojo> list){
+//    public void saveStudent(ArrayList<StudentPojo> list){
+//        System.out.println("saveStudent "+list.size());
+//        list.forEach(student -> {
+//
+//            StudentEntity studentEntity = new StudentEntity(student.getName(),student.getSurname(),student.getPatronymic());
+//
+//            try {
+//                studentJpa.save(studentEntity);
+//            }catch (Exception ex){
+//                System.out.println("Exeption: "+ex);
+//            }
+//        });
+//        studentJpa.flush();
+//        System.out.println("Saveng. All OK");
+//
+//    }
+
+    public void saveStudent(List<StudentEntity> list){
         System.out.println("saveStudent "+list.size());
         list.forEach(student -> {
 
-            StudentEntity studentEntity = new StudentEntity(student.getName(),student.getSurname(),student.getPatronymic());
+//            StudentEntity studentEntity = new StudentEntity(student.getName(),student.getSurname(),student.getPatronymic());
 
             try {
-                studentJpa.save(studentEntity);
+                studentJpa.save(student);
             }catch (Exception ex){
                 System.out.println("Exeption: "+ex);
             }
@@ -92,6 +109,10 @@ public class DbImpl {
         System.out.println("Saveng. All OK");
 
     }
+
+
+
+
 
     public List<StudentEntity> getAllStudents(){
      return    studentJpa.findAll();

@@ -1,6 +1,7 @@
 package io.github.oleiva.ivasoft.services;
 
 
+import io.github.oleiva.ivasoft.entity.StudentEntity;
 import io.github.oleiva.ivasoft.jpa.StudentJpa;
 //import io.github.oleiva.ivasoft.pojo.MarksPojo;
 import io.github.oleiva.ivasoft.pojo.StudentPojo;
@@ -17,6 +18,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 public class ParserStudents {
 
@@ -29,14 +31,18 @@ public class ParserStudents {
 //        tr_atudents(new File(FILE_NAME));
 //    }
 
-    public  ArrayList<StudentPojo> tr_atudents(File file) {
-        ArrayList<StudentPojo> students = new ArrayList<>();
+    @Autowired StudentJpa studentJpa;
+
+    public List<StudentEntity> tr_atudents(File file) {
+        ArrayList<StudentEntity>  Studentlist=new ArrayList<>();
+
+//        ArrayList<StudentPojo> students = new ArrayList<>();
         String name= "";
         String subject= "";
         double mark= 0.0;
         String grup= "";
 
-        ArrayList<StudentPojo> studentPojos =new ArrayList<>();
+//        ArrayList<StudentPojo> studentPojos =new ArrayList<>();
 
         try {
             FileInputStream excelFile = new FileInputStream(file);
@@ -71,21 +77,31 @@ public class ParserStudents {
                        String pattern = "№ п/п";
                        String pattFIO = "ПІБ студента";
                        Cell currCell = datatypeSheet.getRow(indexR).getCell(indexC);
-
+//
                         if (indexR>0) {
+                            StudentEntity studentEntity = new StudentEntity();
+
                             if (datatypeSheet.getRow(0).getCell(indexC).getStringCellValue().contains(pattern)) {
                                 System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-                            }
-                            ;
+                            };
+
 
                             if (datatypeSheet.getRow(0).getCell(indexC).getStringCellValue().contains(pattFIO)) {
                                 if (currCell.getStringCellValue() != null && currCell.getStringCellValue().length() > 5) {
                                     System.out.println(currCell.getStringCellValue());
                                     String sells[] = currCell.getStringCellValue().split("\\ ");
-                                    studentPojos.add(new StudentPojo(sells[0], sells[1], sells[2]));
+//                                    studentPojos.add(new StudentPojo(sells[0], sells[1], sells[2]));
+                                    studentEntity = new StudentEntity( sells[0],  sells[1],  sells[2]);
+//                                    studentJpa.saveAndFlush(studentEntity);
+                                    System.out.println("studentEntity :: "+studentEntity.toString());
+//                                    studentJpa.saveAndFlush(studentEntity);
+                                    Studentlist.add(studentEntity);
                                 }
+
+
                             }
                             ;
+
                         }
 
 
@@ -109,6 +125,8 @@ public class ParserStudents {
 //                        } else {
 //                            subjectList.add("");
 //                        }
+
+
                     }
                 }
             }
@@ -121,18 +139,18 @@ public class ParserStudents {
             e.printStackTrace();
         }
 
-        students.forEach(x->{
-            System.out.println(x.toString());
-        });
+//        students.forEach(x->{
+//            System.out.println(x.toString());
+//        });
         System.out.println("//////");
         System.out.println();
 
-        studentPojos.forEach(user->{
-            System.out.println(user.toString());
-        });
+//        studentPojos.forEach(user->{
+//            System.out.println(user.toString());
+//        });
 
 
-        return studentPojos;
+        return Studentlist;
     }
 
 //    private static class StudentPojo{
