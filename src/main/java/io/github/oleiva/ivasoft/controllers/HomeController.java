@@ -28,8 +28,9 @@ public class HomeController {
     @Autowired
     NewProcessing newProcessing;
 
-
-    private static String UPLOADED_FOLDER = "/home/ivasoft/Documents/Owner/spring-boot-heroku/Cashe/";
+//    https://stackoverflow.com/questions/12416738/how-to-use-herokus-ephemeral-filesystem?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+//    private static String UPLOADED_FOLDER = "/home/ivasoft/Documents/Owner/spring-boot-heroku/Cashe/";
+    private static String UPLOADED_FOLDER = "d:\\config\\";
 
     @Autowired
     public HomeController(RecordRepository repository) {
@@ -64,8 +65,9 @@ public class HomeController {
 
 
         } catch (IOException e) {
-            redirectAttributes.addFlashAttribute("message", "You successfully uploaded '" + file.getOriginalFilename() + "'");
+//            redirectAttributes.addFlashAttribute("message", "You successfully uploaded '" + file.getOriginalFilename() + "'");
             e.printStackTrace();
+            System.out.println(e);
         }
 
         return "redirect:/uploadStatus";
