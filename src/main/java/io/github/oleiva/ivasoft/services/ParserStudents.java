@@ -107,65 +107,65 @@ public class ParserStudents {
                                     studentEntity.setPassportNumberBirthBertificate(String.valueOf(datatypeSheet.getRow(indexR).getCell(7)));
                                     studentEntity.setDateOFbirth(String.valueOf(datatypeSheet.getRow(indexR).getCell(8)));
                                     studentEntity.setSex(String.valueOf(datatypeSheet.getRow(indexR).getCell(9)));
-//                        studentEntity.setSex(String.valueOf(datatypeSheet.getRow(indexR).getCell(10)));
-//                        studentEntity.setSex(String.valueOf(datatypeSheet.getRow(indexR).getCell(11)));
-//                                    studentEntity.setPlaceOfBirth(String.valueOf(datatypeSheet.getRow(indexR).getCell(12)));
-//                                    studentEntity.setContacts(String.valueOf(datatypeSheet.getRow(indexR).getCell(15)));
-//                                    studentEntity.setParents_guardians_Name_and_contact(String.valueOf(datatypeSheet.getRow(indexR).getCell(16)));
-//                                    studentEntity.setIPN(String.valueOf(datatypeSheet.getRow(indexR).getCell(17)));
-//                        studentEntity.setDock_type_that_reason_of_debris(String.valueOf(datatypeSheet.getRow(indexR).getCell(18)));
+                        studentEntity.setSex(String.valueOf(datatypeSheet.getRow(indexR).getCell(10)));
+                        studentEntity.setSex(String.valueOf(datatypeSheet.getRow(indexR).getCell(11)));
+                                    studentEntity.setPlaceOfBirth(String.valueOf(datatypeSheet.getRow(indexR).getCell(12)));
+                                    studentEntity.setContacts(String.valueOf(datatypeSheet.getRow(indexR).getCell(15)));
+                                    studentEntity.setParents_guardians_Name_and_contact(String.valueOf(datatypeSheet.getRow(indexR).getCell(16)));
+                                    studentEntity.setIPN(String.valueOf(datatypeSheet.getRow(indexR).getCell(17)));
+                        studentEntity.setDocktypethatreasonofdebris(String.valueOf(datatypeSheet.getRow(indexR).getCell(18)));
 
-//                                    studentEntity.setDocSeriesForEntry(String.valueOf(datatypeSheet.getRow(indexR).getCell(19)));
-//                        studentEntity.setDocSeriesForEntry(String.valueOf(datatypeSheet.getRow(indexR).getCell(20)));
-//                                    studentEntity.setNumber_of_docs_reason_of_debris(String.valueOf(datatypeSheet.getRow(indexR).getCell(21)));
-//                                    studentEntity.setDate_of_doc_that_reason_of_debris(String.valueOf(datatypeSheet.getRow(indexR).getCell(22)));
-//                                    studentEntity.setIssued_by(String.valueOf(datatypeSheet.getRow(indexR).getCell(23)));
-//                                    studentEntity.setTheAverage_score_is_dock(String.valueOf(datatypeSheet.getRow(indexR).getCell(24)));
-//                                    studentEntity.setBallForEntry(String.valueOf(datatypeSheet.getRow(indexR).getCell(25)));
+                                    studentEntity.setDocSeriesForEntry(String.valueOf(datatypeSheet.getRow(indexR).getCell(19)));
+                        studentEntity.setDocSeriesForEntry(String.valueOf(datatypeSheet.getRow(indexR).getCell(20)));
+                                    studentEntity.setNumber_of_docs_reason_of_debris(String.valueOf(datatypeSheet.getRow(indexR).getCell(21)));
+                                    studentEntity.setDate_of_doc_that_reason_of_debris(String.valueOf(datatypeSheet.getRow(indexR).getCell(22)));
+                                    studentEntity.setIssued_by(String.valueOf(datatypeSheet.getRow(indexR).getCell(23)));
+                                    studentEntity.setTheAverage_score_is_dock(String.valueOf(datatypeSheet.getRow(indexR).getCell(24)));
+                                    studentEntity.setBallForEntry(String.valueOf(datatypeSheet.getRow(indexR).getCell(25)));
 
-//                                    studentEntity.setInosLanguageStudied(String.valueOf(datatypeSheet.getRow(indexR).getCell(26)));
-//                        studentEntity.setInosLanguageStudied(String.valueOf(datatypeSheet.getRow(indexR).getCell(27)));
-//                        studentEntity.setInosLanguageStudied(String.valueOf(datatypeSheet.getRow(indexR).getCell(28)));
-//                        studentEntity.setInosLanguageStudied(String.valueOf(datatypeSheet.getRow(indexR).getCell(29)));
-//                                    studentEntity.setdDYear(String.valueOf(datatypeSheet.getRow(indexR).getCell(30)));
+                                    studentEntity.setInosLanguageStudied(String.valueOf(datatypeSheet.getRow(indexR).getCell(26)));
+                        studentEntity.setInosLanguageStudied(String.valueOf(datatypeSheet.getRow(indexR).getCell(27)));
+                        studentEntity.setInosLanguageStudied(String.valueOf(datatypeSheet.getRow(indexR).getCell(28)));
+                        studentEntity.setInosLanguageStudied(String.valueOf(datatypeSheet.getRow(indexR).getCell(29)));
+                                    studentEntity.setdDYear(String.valueOf(datatypeSheet.getRow(indexR).getCell(30)));
 
-//                                    studentEntity.setStartDateOfStudy(String.valueOf(datatypeSheet.getRow(indexR).getCell(31)));
-//                                    studentEntity.setGraduationDate(String.valueOf(datatypeSheet.getRow(indexR).getCell(32)));
-//                                    studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(33)));
+                                    studentEntity.setStartDateOfStudy(String.valueOf(datatypeSheet.getRow(indexR).getCell(31)));
+                                    studentEntity.setGraduationDate(String.valueOf(datatypeSheet.getRow(indexR).getCell(32)));
+                                    studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(33)));
 
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(34)));
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(35)));
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(36)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(34)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(35)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(36)));
 
-//                                    studentEntity.setCourse(String.valueOf(datatypeSheet.getRow(indexR).getCell(37)));
-//                                    studentEntity.setFormOfStudy(String.valueOf(datatypeSheet.getRow(indexR).getCell(38)));
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(39)));
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(40)));
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(41)));
+                                    studentEntity.setCourse(String.valueOf(datatypeSheet.getRow(indexR).getCell(37)));
+                                    studentEntity.setFormOfStudy(String.valueOf(datatypeSheet.getRow(indexR).getCell(38)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(39)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(40)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(41)));
 
-//                                    studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(42)));
+                                    studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(42)));
 
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(43)));
-//                                    studentEntity.setSpecialtyCode(String.valueOf(datatypeSheet.getRow(indexR).getCell(44)));
-//                                    studentEntity.setSpecialty(String.valueOf(datatypeSheet.getRow(indexR).getCell(45)));
-
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(46)));
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(47)));
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(48)));
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(49)));
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(50)));
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(51)));
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(52)));
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(53)));
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(54)));
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(55)));
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(56)));
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(57)));
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(58)));
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(59)));
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(60)));
-//                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(61)));
-//                                    studentEntity.setSoftware(String.valueOf(datatypeSheet.getRow(indexR).getCell(62)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(43)));
+                                    studentEntity.setSpecialtyCode(String.valueOf(datatypeSheet.getRow(indexR).getCell(44)));
+                                    studentEntity.setSpecialty(String.valueOf(datatypeSheet.getRow(indexR).getCell(45)));
+                                    yyyy.MM.dd.HH.mm.ss
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(46)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(47)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(48)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(49)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(50)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(51)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(52)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(53)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(54)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(55)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(56)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(57)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(58)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(59)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(60)));
+                        studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(61)));
+                                    studentEntity.setSoftware(String.valueOf(datatypeSheet.getRow(indexR).getCell(62)));
 
 
 
