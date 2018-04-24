@@ -10,3 +10,7 @@ release.properties
 Db/
 
 Cashe/
+
+myapplication\.log
+
+*.iml

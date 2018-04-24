@@ -148,7 +148,7 @@ public class ParserStudents {
                         studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(43)));
                                     studentEntity.setSpecialtyCode(String.valueOf(datatypeSheet.getRow(indexR).getCell(44)));
                                     studentEntity.setSpecialty(String.valueOf(datatypeSheet.getRow(indexR).getCell(45)));
-                                    yyyy.MM.dd.HH.mm.ss
+
                         studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(46)));
                         studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(47)));
                         studentEntity.setStructuralUnit(String.valueOf(datatypeSheet.getRow(indexR).getCell(48)));
