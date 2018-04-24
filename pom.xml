@@ -183,7 +183,7 @@
             <id>heroku</id>
             <activation>
                 <property>
-                    <fio>env.SOURCE_VERSION</fio>
+                    <name>env.SOURCE_VERSION</name>
                 </property>
             </activation>
             <properties>
@@ -194,7 +194,7 @@
             <id>travis</id>
             <activation>
                 <property>
-                    <fio>env.TRAVIS</fio>
+                    <name>env.TRAVIS</name>
                     <value>true</value>
                 </property>
             </activation>
@@ -249,10 +249,10 @@
     </repositories>
 
     <pluginRepositories>
-        <pluginRepository>
-            <id>spring-milestone</id>
-            <url>https://repo.spring.io/libs-release</url>
-        </pluginRepository>
+    <pluginRepository>
+        <id>spring-milestone</id>
+        <url>https://repo.spring.io/libs-release</url>
+    </pluginRepository>
     </pluginRepositories>
 
 </project>
