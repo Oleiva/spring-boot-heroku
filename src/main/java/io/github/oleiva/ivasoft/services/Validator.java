@@ -50,10 +50,10 @@ public class Validator {
     }
 
 
-    public static void main(String[] args) {
-//        Validator vl = new Validator();
-//        System.out.println( vl.validateGroupIndex("TM !W- 031"));;
-
-
-    }
+//    public static void main(String[] args) {
+////        Validator vl = new Validator();
+////        System.out.println( vl.validateGroupIndex("TM !W- 031"));;
+//
+//
+//    }
 }

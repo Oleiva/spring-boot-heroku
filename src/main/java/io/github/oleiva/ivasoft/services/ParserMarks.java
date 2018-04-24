@@ -27,9 +27,9 @@ public class ParserMarks {
 
 //    private static final String FILE_NAME = "data/38.xlsx";
 
-    public static void main(String[] args) {
-//        tr_atudents();
-    }
+//    public static void main(String[] args) {
+////        tr_atudents();
+//    }
 
     public ArrayList<MarksPojo> transformation(File file) {
         ArrayList<MarksPojo> marks = new ArrayList<>();
