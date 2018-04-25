@@ -37,6 +37,8 @@ public class NewProcessing {
     @Autowired
     StudentJpa studentJpa;
 
+    private static String UPLOADED_FOLDER = "/tmp/";
+
     public void doit(){
         System.out.println("doit");
 
@@ -121,7 +123,7 @@ public class NewProcessing {
         }
 
 
-        try (OutputStream fileOut = new FileOutputStream("workbook.xlsx")) {
+        try (OutputStream fileOut = new FileOutputStream(UPLOADED_FOLDER+"workbook.xlsx")) {
             wb.write(fileOut);
         } catch (IOException e) {
             e.printStackTrace();
